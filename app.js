@@ -1368,7 +1368,7 @@ I am your institutional research intelligence assistant powered directly by the 
 
     const ws = XLSX.utils.json_to_sheet(exportRows);
     const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "MU Scopus Publications");
+    XLSX.utils.book_append_sheet(wb, ws, "BAMU Scopus Publications");
     XLSX.writeFile(wb, filename);
     showToast(`Exported ${formatNumber(records.length)} records to Excel!`, "📊");
   }
@@ -1742,7 +1742,7 @@ I am your institutional research intelligence assistant powered directly by the 
     });
 
     document.getElementById("btn-export-bibtex").addEventListener("click", () => {
-      exportToBibTeX(getFilteredData(), "mumbai_university_scopus_report.bib");
+      exportToBibTeX(getFilteredData(), "bamu_scopus_report.bib");
     });
 
     document.getElementById("btn-print-dash").addEventListener("click", () => {
