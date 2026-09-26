@@ -1741,7 +1741,7 @@ I am your institutional research intelligence assistant powered directly by the 
       exportToExcel(getFilteredData(), "bamu_scopus_report.xlsx");
     });
 
-    document.getElementById("btn-export-bibtex").addEventListener("click", () => {
+    document.getElementById("btn-export-bibtex")?.addEventListener("click", () => {
       exportToBibTeX(getFilteredData(), "bamu_scopus_report.bib");
     });
 
@@ -1751,7 +1751,7 @@ I am your institutional research intelligence assistant powered directly by the 
     });
 
     // Tab 2 Landmark BibTeX
-    document.getElementById("btn-export-landmark-bib").addEventListener("click", () => {
+    document.getElementById("btn-export-landmark-bib")?.addEventListener("click", () => {
       const top20 = getFilteredData().sort((a, b) => (Number(b.citations) || 0) - (Number(a.citations) || 0)).slice(0, 20);
       exportToBibTeX(top20, "bamu_landmark_papers.bib");
     });
@@ -1766,7 +1766,7 @@ I am your institutional research intelligence assistant powered directly by the 
       printAuthorProfile(state.selectedFaculty, getFilteredData());
     });
 
-    document.getElementById("btn-export-author-bib").addEventListener("click", () => {
+    document.getElementById("btn-export-author-bib")?.addEventListener("click", () => {
       const authPubs = getFilteredData().filter(d => (d.authors || "").includes(state.selectedFaculty) || (d.primary_author || "") === state.selectedFaculty);
       const clean = (state.selectedFaculty || "author").replace(/[^a-zA-Z]/g, "_");
       exportToBibTeX(authPubs, `${clean}_scopus_publications.bib`);
@@ -1791,7 +1791,7 @@ I am your institutional research intelligence assistant powered directly by the 
       exportToExcel(getFilteredData(), "bamu_scopus_publications.xlsx");
     });
 
-    document.getElementById("btn-feed-export-bib").addEventListener("click", () => {
+    document.getElementById("btn-feed-export-bib")?.addEventListener("click", () => {
       exportToBibTeX(getFilteredData(), "bamu_scopus_feed.bib");
     });
 
