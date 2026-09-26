@@ -1572,23 +1572,50 @@ html, body {
    PRINT STYLESHEET (Executive-Ready Academic Print)
    ========================================================= */
 @media print {
-  .sidebar, .institutional-header, .tabs-analytics-nav, .report-toolbar, .btn-action, .copilot-container, .toast-container {
+  .sidebar,
+  .institutional-header,
+  .tabs-analytics-nav,
+  .report-toolbar,
+  .btn-action,
+  .copilot-container,
+  .toast-container,
+  .sidebar-backdrop,
+  .btn-mobile-filter-toggle {
     display: none !important;
   }
+
   .tab-panel {
-    display: block !important;
-    page-break-after: always;
+    display: none !important;
   }
+
+  .tab-panel.active {
+    display: block !important;
+  }
+
   body, .main-content {
     background: #FFFFFF !important;
     color: #0D111A !important;
     padding: 0 !important;
+    margin: 0 !important;
   }
+
   .exec-kpi-card, .analytics-card, .institutional-hero {
     box-shadow: none !important;
     border: 1px solid #D8E1E8 !important;
     background: #FFFFFF !important;
     color: #0D111A !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .js-plotly-plot, .plot-container, .svg-container {
+    width: 100% !important;
+  }
+
+  .chart-container {
+    width: 100% !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 }
 

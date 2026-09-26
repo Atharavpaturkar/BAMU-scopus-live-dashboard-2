@@ -1745,8 +1745,17 @@ I am your institutional research intelligence assistant powered directly by the 
       exportToBibTeX(getFilteredData(), "bamu_scopus_report.bib");
     });
 
-    document.getElementById("btn-print-dash").addEventListener("click", () => {
-      showToast("Preparing executive printable dossier...", "🖨️");
+    document.getElementById("btn-print-dash")?.addEventListener("click", () => {
+      showToast("Preparing printable dossier...", "🖨️");
+      const activePanel = document.querySelector(".tab-panel.active");
+      if (activePanel) {
+        const charts = activePanel.querySelectorAll(".chart-container");
+        charts.forEach(el => {
+          if (el && el.data && window.Plotly) {
+            Plotly.Plots.resize(el);
+          }
+        });
+      }
       setTimeout(() => window.print(), 250);
     });
 
